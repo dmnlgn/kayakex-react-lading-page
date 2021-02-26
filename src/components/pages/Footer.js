@@ -17,7 +17,7 @@ function Footer() {
                         <div>
                             <p className="footer-font">Szybki kontakt</p>
                             <p className="footer-font">{dataFooter.numberFooter}</p>
-                            <a className="footer-font" href="#">{dataFooter.emailFooter}</a>
+                            <a className="footer-font">{dataFooter.emailFooter}</a>
                         </div>
                         <div>
                             <p>&copy; dmnlgn</p>
@@ -34,4 +34,4 @@ function Footer() {
     );
 }
 
-export default Footer
+export default Footer;

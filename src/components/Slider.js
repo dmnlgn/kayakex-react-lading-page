@@ -54,7 +54,6 @@ function Slider() {
         },
     ];
 
-
     // use state
     const lastIndex = slides.length;
     // const lastIndex = slider_info.slice(-1);
@@ -64,97 +63,33 @@ function Slider() {
     //console.log(slides[0])
 
     const scrollToSlide = () => {
-        console.log("==========================")
-        console.log("HANDLE SCROLLTOSLIDE START: " + index)
         item.current[index].scrollIntoView({
             behavior: "smooth",
             block: "nearest",
             inline: "center"
         })
-        console.log("HANDLE SCROLLTOSLIDE END: " + index)
-        console.log("==========================")
     }
 
     // left nav
     let handleNavLeft = () => {
-        console.log("==========================")
-        console.log("HANDLE NAV LEFT START: " + index)
         if(index === 0){
-            //setCount(lastIndex-1)
             index = lastIndex-1
-            console.log("HANDLE NAV RIGHT SET 5: " + index)
         }else{
-            //setCount(i - 1)
             index -= 1
-            console.log("HANDLE NAV RIGHT SET -1: " + index)
         }
-        console.log("HANDLE NAV LEFT END: " + index)
-        console.log("CALL TO SCROLLTOSLIDE...")
-        console.log("==========================")
         scrollToSlide();
     }
 
     // right nav
     let handleNavRight = () => {
-        console.log("==========================")
-        console.log("HANDLE NAV RIGHT START: " + index)
         setCount(0)
         if(index === lastIndex-1){
             index = 0;
-            console.log("HANDLE NAV RIGHT SET 0: " + index)
         }else{
-            //setCount(i + 1)
             index += 1;
-            console.log("HANDLE NAV RIGHT SET +1: " + index)
         }
-        console.log("HANDLE NAV RIGHT END: " + index)
-        console.log("CALL TO SCROLLTOSLIDE...")
-        console.log("==========================")
         scrollToSlide();
     }
-
-    {/*
-
-        useEffect(()=>{
-        if(item.current[i]){
-            scrollToSlide();
-        }
-
-    })
-
-    const scrollToNextSlide = () => {
-        item.current[i].scrollIntoView({
-            behavior: "smooth",
-            block: "nearest",
-            inline: "center"
-        })
-    }
-
-
-
-    useEffect(() => {
-        if(item.current[0]){
-            scrollToNextSlide();
-        }
-    },[i])
-
-    const startIndex = item.current[1];
-    const scroll = (direction) =>{
-        if (direction === "left"){
-            setCount(prev => prev - 1);
-            console.log(i);
-            console.log(item.current[i])
-        }else{
-            setCount(prev => prev + 1);
-            console.log(i);
-            console.log(item.current[i])
-        }
-
-        //scrollToNextSlide();
-        //console.log(item.current[i])
-    }
-    //console.log(i);
-*/}
 
     return(
             <>

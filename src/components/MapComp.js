@@ -1,8 +1,7 @@
 import React from "react";
 import GoogleMaps from "simple-react-google-maps";
 
-export default class Example extends React.Component {
-    render() {
+function Map() {
         return (
             <div>
                 <GoogleMaps
@@ -13,5 +12,6 @@ export default class Example extends React.Component {
                 />
             </div>
         );
-    }
 }
+
+export default Map;

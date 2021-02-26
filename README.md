@@ -1,11 +1,14 @@
 # KAYAKEX - REACT APP
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+this is a simply landing page in react.js
 
-In the project directory, you can run:
+## Installation
+```bash
+npm init -y && npm i @fortawesome/fontawesome-svg-core && npm i @fortawesome/free-solid-svg-icons && npm i @fortawesome/react-fontawesome && npm i simple-react-google-maps && npm i react-scroll && react-hook-form
+```
 
-### `yarn start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Usage
+```
+npm start
+```
 

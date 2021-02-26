@@ -7,6 +7,7 @@ import { faArrowDown } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import * as Scroll from "react-scroll";
+import video from "../video/1918465.mp4";
 
 let Link = Scroll.Link;
 
@@ -15,7 +16,7 @@ function Header() {
         <Element id="Start">
         <div className="header-container">
             <div className="background-col"></div>
-            <video src="./video/1918465.mp4" autoPlay loop muted />
+            <video src={video} autoPlay loop muted />
             <div className="header-content">
                 <h1>Wypożyczalnia profesjonalnego sprzętu sportowego</h1>
                 <h2>Zajmujemy się wynajmem najwyższej jakości sprzętu do uprawiania sportów wodnych i lądowych. Oferujemy produkty polskich i zagranicznych producentów</h2>

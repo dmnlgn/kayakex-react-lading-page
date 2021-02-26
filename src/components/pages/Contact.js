@@ -32,7 +32,7 @@ function Contact() {
             <Element id="Contact">
                 <h1>Kontakt</h1>
                 <div className="contc">
-                    <div className="contc_box a">
+                    <div className="contactBox a">
                         <header>Dane kontakowe</header>
                         <p className="upper"><strong>{updateData.companyName}</strong></p>
                         <p>{updateData.street}</p>
@@ -48,17 +48,17 @@ function Contact() {
                         <p>{updateData.account_number3}</p>
                         <p>{updateData.account_number4}</p>
                     </div>
-                    <div className="contc_box b">
+                    <div className="contactBox b">
                         <header>Lokalizacja</header>
                         <Map/>
                     </div>
-                    <div className="contc_box c">
+                    <div className="contactBox c">
                         <header>Kontakt bezpośredni</header>
                         <p><strong>{updateData.directCompanyName}</strong></p>
                         <p>{updateData.directNumber}</p>
                         <p>{updateData.directNumber2}</p>
                     </div>
-                    <div className="contc_box d">
+                    <div className="contactBox d">
                         <header>Napisz do nas</header>
                         <div className="data_form">
                             <form onSubmit={handleSubmit(onSubmit)} className="form">
