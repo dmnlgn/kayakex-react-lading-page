@@ -14,7 +14,7 @@
 }
 
 .footer-right {
-    align-content: end;
+    align-content: start;
     display: grid;
 }
 

@@ -24,7 +24,7 @@ function Footer() {
                         </div>
                     </div>
                     <div className="footer-right">
-                        <div key={dataFooter.id}>
+                        <div>
                             <p>{dataFooter.cookies}</p>
                         </div>
                     </div>
