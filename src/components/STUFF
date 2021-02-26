@@ -1,0 +1,654 @@
+import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
+
+<Router>
+            <Navbar />
+            <Switch>
+                <Route path="/" exact component={Start} />
+                <Route path="/offer" component={Offer} />
+            </Switch>
+        </Router>
+
+
+
+
+
+import React from 'react'
+import { Element } from 'react-scroll';
+import "./Contact.css";
+
+import Map from "../MapComp";
+import { useForm } from "react-hook-form";
+
+
+function Contact() {
+
+    const { register, handleSubmit } = useForm();
+    const onSubmit = data => console.log(data);
+
+    const updateData = [
+        {
+            companyName: 'Lorem ipsum dolor',
+            street: 'sit amet, consectetur',
+            street2: 'adipiscing elit',
+            phone: '000 000 000',
+            mail: 'lorem@ipsum',
+            bank_name: 'Sed tristique',
+            account_number1: 'CC AAAAAAAA BBBBBBBBBBBBBBBB',
+            account_number2: 'CC AAAAAAAA BBBBBBBBBBBBBBBB',
+            account_number3: 'CC AAAAAAAA BBBBBBBBBBBBBBBB',
+            account_number4: 'CC AAAAAAAA BBBBBBBBBBBBBBBB',
+        },
+        {
+            directCompanyName: 'Lorem ipsum',
+            directNumber: 'Lorem ipsum',
+            directNumber2: 'Lorem ipsum',
+        },
+    ];
+
+    console.log(updateData)
+
+    const ContactFragment = updateData.map((data) =>
+        <div className="contc_box a">
+            <header>Dane kontakowe</header>
+            <p className="upper"><strong>{data.companyName}</strong></p>
+            <p>{data.street}</p>
+            <p>{data.street2}</p>
+            <br/>
+            <p>{data.phone}</p>
+            <p>{data.mail}</p>
+            <br/>
+            <p className="upper"><strong>{data.bank_name}</strong></p>
+            <p>PLN: {data.account_number1}</p>
+            <p>EUR: {data.account_number2}</p>
+            <br/>
+            <p>NIP: {data.account_number3}</p>
+            <p>NIP EU: {data.account_number4}</p>
+        </div>
+    )
+
+    const ContactFragmentMap = (
+        <div className="contc_box b">
+            <header>Lokalizacja</header>
+            <Map/>
+        </div>
+    )
+
+    const ContactFragmentDirect = updateData.map((data) =>
+        <div className="contc_box c">
+            <header>Kontakt bezpośredni</header>
+            <p><strong>{data.directCompanyName}</strong></p>
+            <p>{data.directNumber}</p>
+            <p>{data.directNumber2}</p>
+        </div>
+    )
+
+    const ContactFragmentFormal = (
+        <div className="contc_box d">
+            <header>Napisz do nas</header>
+            <div className="data_form">
+                <form onSubmit={handleSubmit(onSubmit)} className="form">
+                    <div className="form a">
+                        <input
+                            name="firstName"
+                            ref={register}
+                            placeholder="Name"
+                        />
+                        <input
+                            name="lasName"
+                            ref={register}
+                            placeholder="Last name"
+                        />
+                        <input
+                            name="Company"
+                            ref={register}
+                            placeholder="Company"
+                        />
+                        <input
+                            name="Email"
+                            ref={register}
+                            placeholder="E-mail"
+                        />
+                        <input
+                            name="Phone"
+                            type="number"
+                            placeholder="000000000"
+                            ref={register}
+                        />
+                    </div>
+                    <div className="form b">
+                        <textarea
+                            type="text"
+                            name="text"
+                            ref={register}
+                            placeholder="text"
+                        />
+                    </div>
+                    <input type="submit" className="input-btn"/>
+                </form>
+            </div>
+        </div>
+    )
+
+    return (
+        <>
+            <Element id="Contact">
+                <h1>Kontakt</h1>
+                <div className="contc">
+                    {ContactFragment}
+                    {ContactFragmentMap}
+                    {ContactFragmentDirect}
+                    {ContactFragmentFormal}
+                </div>
+            </Element>
+            {/*
+            <Element id="Contact">
+                <h1>Kontakt</h1>
+                <div className="contc">
+                    <div className="contc_box a">
+                        <header>Dane kontakowe</header>
+                        <p><strong>{updateData.company_name}</strong></p>
+                        <p>ul. Chmielowa 6, 21-002 Jastków</p>
+                        <p>Panieńszczyzna, Polska</p>
+                        <br/>
+                        <p>(+48) 81 471 49 19</p>
+                        <p>biuro@veedoo.pl</p>
+                        <br/>
+                        <p><strong>ING BANK Śląski S.A</strong></p>
+                        <p>PLN: 00 0000 0000 0000 0000 0000 0000</p>
+                        <p>EUR: 00 0000 0000 0000 0000 0000 0000</p>
+                        <br/>
+                        <p>NIP: 000 000 00 00</p>
+                        <p>NIP EU: 000 000 00 00</p>
+                    </div>
+                    <div className="contc_box b">
+                        <header>Lokalizacja</header>
+                        <Map/>
+                    </div>
+                    <div className="contc_box c">
+                        <header>Kontakt bezpośredni</header>
+                        <p><strong>WYPOŻYCZALNIA</strong></p>
+                        <p>(+48) 00 000 00 00</p>
+                        <p>(+48) 00 000 00 00</p>
+                    </div>
+                    <div className="contc_box d">
+                        <header>Napisz do nas</header>
+                        <div className="data_form">
+                            <form onSubmit={handleSubmit(onSubmit)} className="form">
+                                <div className="form a">
+                                    <input
+                                        name="firstName"
+                                        ref={register}
+                                        placeholder="Name"
+                                        //onFocus={(e) => resetInput(e)}
+                                    />
+                                    <input
+                                        name="lasName"
+                                        ref={register}
+                                        placeholder="Last name"
+                                        onFocus={(e) => resetInput(e)}
+                                    />
+                                    <input
+                                        name="Company"
+                                        ref={register}
+                                        placeholder="Company"
+                                        onFocus={(e) => resetInput(e)}
+                                    />
+                                    <input
+                                        name="Email"
+                                        ref={register}
+                                        placeholder="E-mail"
+                                        onFocus={(e) => resetInput(e)}
+                                    />
+                                    <input
+                                        name="Phone"
+                                        type="number"
+                                        placeholder="000000000"
+                                        ref={register}
+                                        onFocus={(e) => resetInput(e)}
+                                    />
+                                </div>
+                                <div className="form b">
+                                    <textarea
+                                        type="text"
+                                        name="text"
+                                        ref={register}
+                                        placeholder="text"
+                                    />
+                                </div>
+                                <input type="submit" className="input-btn"/>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </Element>
+            */}
+        </>
+    );
+}
+
+export default Contact;
+
+
+
+import React, { useState, useRef, useEffect } from 'react';
+import "./slider.css";
+
+// images
+import img1 from "../img/skuter1.jpg";
+import img2 from "../img/hulajdusza.jpg";
+import img3 from "../img/rower.jpg";
+import img4 from "../img/silka.jpg";
+import img5 from "../img/spadochron.jpg";
+import img6 from "../img/surfing.jpg";
+
+// get font awesome icons
+import { faArrowRight, faArrowLeft } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
+function Slider() {
+    const item = useRef({})
+    const slides = [
+        {
+            title: 'Skutery wodne',
+            subtitle: 'Szeroki wybór renomowanych skuterów wodnych najlepszych',
+            img: img1
+        },
+        {
+            title: 'Roweryki',
+            subtitle: 'Selekcja rowerów od kolażówek do rowerów górskich',
+            img: img2
+        },
+        {
+            title: 'Hulajnogi elektryncze',
+            subtitle: 'Wypożyczami również hulajnogi elektryczne popularnych producentów',
+            img: img3
+        },
+        {
+            title: 'Surfing',
+            subtitle: 'Najlepsze deski do surfowania',
+            img: img4
+        },
+        {
+            title: 'Surfing',
+            subtitle: 'Najlepsze deski do surfowania',
+            img: img5
+        },
+        {
+            title: 'Inne',
+            subtitle: 'Przyrządy do ćwiczeń siłowych i kondycyjnych',
+            img: img6
+        },
+    ];
+
+
+    // use state
+    const lastIndex = slides.length;
+    // const lastIndex = slider_info.slice(-1);
+    const [i, setCount] = useState(0);
+
+    {/*
+      // left nav
+      const handleNavLeft = () => {
+          setCount(i - 1)
+          //console.log(i)
+              if(i === 0){
+                  setCount(lastIndex-1)
+              }
+          scrollToNextSlide();
+      }
+
+      // right nav
+      const handleNavRight = () => {
+          setCount(i + 1)
+          if(i === lastIndex-1){
+              setCount(0)
+          }
+          //console.log(i)
+          scrollToNextSlide();
+      }
+*/}
+    const scrollToNextSlide = () => {
+        item.current[i].scrollIntoView({
+            behavior: "smooth",
+            block: "nearest",
+            inline: "center"
+        })
+    }
+    {/*
+
+      useEffect(() => {
+          if(window.scrollY > 200){
+              console.log("lol")
+              scrollToNextSlide();
+          }
+      },[i])
+
+
+
+          useEffect(() => {
+        if(item.current){
+            item.current[i].scrollIntoView()
+        }
+    },[i])
+
+*/}
+
+    function scroll(direction) {
+        if (direction === "left"){
+            setCount(i - 1);
+        }else{
+            setCount(i + 1);
+        }
+        scrollToNextSlide();
+    }
+    console.log(i);
+
+
+
+    return(
+            <>
+                <div className="slider">
+                    {slides.map((data, i) => (
+                            <article className="art_class"
+                                     key={i}
+                                     ref={(ref) => (item.current[i] = ref)}>
+                                <img className="art_img"
+                                     src={data.img}/>
+                                <header className="art_title">{data.title}</header>
+                                <p>{data.subtitle}</p>
+                            </article>
+                        )
+                    )}
+                        <FontAwesomeIcon
+                            icon={faArrowLeft}
+                            className="arrow left"
+                            onClick={() => scroll("left") }>
+                        </FontAwesomeIcon>
+                        <FontAwesomeIcon
+                            icon={faArrowRight}
+                            className="arrow right"
+                            onClick={() => scroll("right") }>
+                        </FontAwesomeIcon>
+                </div>
+            </>
+    )
+}
+
+export default Slider;
+
+
+import React, { useState, useRef } from 'react';
+import "./slider.css";
+
+// images
+import img1 from "../img/skuter1.jpg";
+import img2 from "../img/hulajdusza.jpg";
+import img3 from "../img/rower.jpg";
+import img4 from "../img/silka.jpg";
+import img5 from "../img/spadochron.jpg";
+import img6 from "../img/surfing.jpg";
+
+// get font awesome icons
+import { faArrowRight, faArrowLeft } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
+function Slider() {
+    const item = useRef({})
+    const slides = [
+        {
+            title: 'Skutery wodne',
+            subtitle: 'Szeroki wybór renomowanych skuterów wodnych najlepszych',
+            img: img1,
+            alt: 'skutery'
+        },
+        {
+            title: 'Roweryki',
+            subtitle: 'Selekcja rowerów od kolażówek do rowerów górskich',
+            img: img2,
+            alt: 'roweryki'
+        },
+        {
+            title: 'Hulajnogi elektryncze',
+            subtitle: 'Wypożyczami również hulajnogi elektryczne popularnych producentów',
+            img: img3,
+            alt: 'hulajnogi elektryczne'
+        },
+        {
+            title: 'Surfing',
+            subtitle: 'Najlepsze deski do surfowania',
+            img: img4,
+            alt: 'surfing'
+        },
+        {
+            title: 'Surfing',
+            subtitle: 'Najlepsze deski do surfowania',
+            img: img5,
+            alt: 'surfing'
+        },
+        {
+            title: 'Inne',
+            subtitle: 'Przyrządy do ćwiczeń siłowych i kondycyjnych',
+            img: img6,
+            alt: 'przyrzady do cwiczen'
+        },
+    ];
+
+
+    // use state
+    const lastIndex = slides.length;
+    // const lastIndex = slider_info.slice(-1);
+    const [i, setCount] = useState(0);
+
+    let index = i;
+    //console.log(slides[0])
+
+    const scrollToSlide = () => {
+        console.log("==========================")
+        console.log("HANDLE SCROLLTOSLIDE START: " + index)
+        item.current[index].scrollIntoView({
+            behavior: "smooth",
+            block: "nearest",
+            inline: "center"
+        })
+        console.log("HANDLE SCROLLTOSLIDE END: " + index)
+        console.log("==========================")
+    }
+
+    // left nav
+    let handleNavLeft = () => {
+        console.log("==========================")
+        console.log("HANDLE NAV LEFT START: " + index)
+        if(index === 0){
+            //setCount(lastIndex-1)
+            index = lastIndex-1
+            console.log("HANDLE NAV RIGHT SET 5: " + index)
+        }else{
+            //setCount(i - 1)
+            index -= 1
+            console.log("HANDLE NAV RIGHT SET -1: " + index)
+        }
+        console.log("HANDLE NAV LEFT END: " + index)
+        console.log("CALL TO SCROLLTOSLIDE...")
+        console.log("==========================")
+        scrollToSlide();
+    }
+
+    // right nav
+    let handleNavRight = () => {
+        console.log("==========================")
+        console.log("HANDLE NAV RIGHT START: " + index)
+        setCount(0)
+        if(index === lastIndex-1){
+            index = 0;
+            console.log("HANDLE NAV RIGHT SET 0: " + index)
+        }else{
+            //setCount(i + 1)
+            index += 1;
+            console.log("HANDLE NAV RIGHT SET +1: " + index)
+        }
+        console.log("HANDLE NAV RIGHT END: " + index)
+        console.log("CALL TO SCROLLTOSLIDE...")
+        console.log("==========================")
+        scrollToSlide();
+    }
+
+    {/*
+
+        useEffect(()=>{
+        if(item.current[i]){
+            scrollToSlide();
+        }
+
+    })
+
+    const scrollToNextSlide = () => {
+        item.current[i].scrollIntoView({
+            behavior: "smooth",
+            block: "nearest",
+            inline: "center"
+        })
+    }
+
+
+
+    useEffect(() => {
+        if(item.current[0]){
+            scrollToNextSlide();
+        }
+    },[i])
+
+    const startIndex = item.current[1];
+    const scroll = (direction) =>{
+        if (direction === "left"){
+            setCount(prev => prev - 1);
+            console.log(i);
+            console.log(item.current[i])
+        }else{
+            setCount(prev => prev + 1);
+            console.log(i);
+            console.log(item.current[i])
+        }
+
+        //scrollToNextSlide();
+        //console.log(item.current[i])
+    }
+    //console.log(i);
+*/}
+
+    return(
+            <>
+                <div className="slider">
+                    {slides.map((data, i) => (
+                            <article className="art_class"
+                                     key={i}
+                                     ref={ref => item.current[i] = ref}>
+                                <img className="art_img"
+                                     alt={data.alt}
+                                     src={data.img}/>
+                                <header className="art_title">{data.title}</header>
+                                <p>{data.subtitle}</p>
+                            </article>
+                        )
+                    )}
+                        <FontAwesomeIcon
+                            icon={faArrowLeft}
+                            className="arrow left"
+                            onClick={handleNavLeft}>
+                        </FontAwesomeIcon>
+                        <FontAwesomeIcon
+                            icon={faArrowRight}
+                            className="arrow right"
+                            onClick={handleNavRight}>
+                        </FontAwesomeIcon>
+                </div>
+            </>
+    )
+}
+
+export default Slider;
+
+
+import React, { useState } from 'react';
+import "./Slider.css";
+
+// images
+import img1 from "../img/skuter1.jpg";
+import img2 from "../img/hulajdusza.jpg";
+import img3 from "../img/rower.jpg";
+import img4 from "../img/silka.jpg";
+import img5 from "../img/spadochron.jpg";
+import img6 from "../img/surfing.jpg";
+
+// horizontall scroll
+import HorizontalScroll from 'react-scroll-horizontal';
+
+
+
+function OfferSlider() {
+    //btn hover
+    const [hovered, setHovered] = useState(false);
+    const toggleHover = () => {
+        setHovered(!hovered);
+    }
+
+    //slider
+    /*
+    const ref = useRef(null);
+
+    const scroll = (scrollOffset) => {
+        ref.current.scrollRight += scrollOffset;
+    }
+*/
+
+    const buttonRight = document.getElementById("right-btn");
+
+    buttonRight.onClick = function () {
+        document.querySelector(".slider").scrollLeft +=20;
+    }
+
+
+    return (
+        <>
+            <div className="slider">
+                <article className="art_class">
+                    <img className="art_img" src={img1} alt="pojazd"/>
+                    <header className="art_title">Skutery wodne</header>
+                    <p>Szeroki wybór renomowanych skuterów wodnych najlepszych</p>
+                </article>
+                <article className="art_class">
+                    <img className="art_img"src={img2} alt="pojazd"/>
+                    <header className="art_title">Skutery wodne</header>
+                    <p>Selekcja rowerów od kolażówek do rowerów górskich</p>
+                </article>
+                <article className="art_class">
+                    <img className="art_img"src={img3} alt="pojazd"/>
+                    <header className="art_title">Hulajnogi elektryncze</header>
+                    <p>Wypożyczami również hulajnogi elektryczne popularnych producentów</p>
+                </article>
+                <article className="art_class">
+                    <img className="art_img" src={img4} alt="pojazd"/>
+                    <header className="art_title">Surfing</header>
+                    <p>Najlepsze deski do surfowania</p>
+                </article>
+                <article className="art_class">
+                    <img className="art_img" src={img5} alt="pojazd"/>
+                    <header className="art_title">Paralotniarstwo</header>
+                    <p>Czołowe firmy produkujace sprzęt do latania</p>
+                </article>
+                <article className="art_class">
+                    <img className="art_img" src={img6} alt="pojazd"/>
+                    <header className="art_title">Inne</header>
+                    <p>Przyrządy do ćwiczeń siłowych i kondycyjnych</p>
+                </article>
+            </div>
+            <button
+                className={hovered ? 'btn active' : 'btn'}
+                onMouseEnter={toggleHover}
+                onMouseLeave={toggleHover}
+                id="right-btn">
+                -></button>
+        </>
+    );
+}
+
+export default OfferSlider

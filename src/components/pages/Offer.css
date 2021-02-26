@@ -1,5 +1,16 @@
 #Offer {
-    display: flex;
-    width: 100vw;
     height: 100vh;
+    margin-top: 150px;
+    margin: 0 auto;
+    max-width: 70%;
+    display: grid;
+}
+
+#Offer > h1 {
+    width: 100%;
+    color: #d74400;
+    font-size: 5em;
+    display: block;
+    font-weight: normal;
+    margin-bottom: 0;
 }

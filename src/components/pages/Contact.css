@@ -1,0 +1,94 @@
+textarea {
+    resize: none;
+}
+
+#Contact {
+    height: 100vh;
+    margin-top: 150px;
+    margin: 0 auto;
+    max-width: 70%;
+    display: grid;
+}
+
+#Contact > h1 {
+    width: 100%;
+    color: #d74400;
+    font-size: 5em;
+    display: block;
+    font-weight: normal;
+    margin-bottom: 0;
+}
+
+
+.contc {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    grid-gap: 30px;
+    grid-template-areas:
+    " a c "
+    " a d "
+    " b d ";
+}
+
+.contc_box {
+    width: 100%;
+}
+
+.contc_box.a {
+    grid-area: a;
+}
+.contc_box.b {
+    grid-area: b;
+}
+.contc_box.c {
+    grid-area: c;
+}
+.contc_box.d {
+    grid-area: d;
+}
+
+
+.contc_box > header{
+    font-size: 2em;
+    margin-block-end: 0.3em;
+}
+
+.contc_box > p {
+    margin-block-start: .2em;
+    margin-block-end: .2em;
+}
+
+.contc_box > p:last-child {
+    margin-block-end: 1.3em;
+}
+
+.form {
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: 1fr 1fr;
+}
+
+.form.a {
+    grid-template-columns: 1fr;
+}
+
+.form.b {
+    grid-template-columns: 1fr;
+}
+
+.form > input {
+    padding: 10px 5px;
+}
+
+.form > *:last-child {
+    grid-column: 1 / -1;
+}
+
+.input-btn {
+    padding: 25px!important;
+    background-color: #d74400;
+    color: #FFF;
+    border: 0;
+    font-size: 2em;
+}
